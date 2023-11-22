@@ -9,14 +9,13 @@ import (
 )
 
 func main() {
-  url := flag.String("url", "", "URL to distill")
+  url := flag.String("u", "", "URL to distill")
   flag.Parse()
 
   if *url == "" {
     panic("URL is required")
   }
 
-  // Start distiller
   result, err := distiller.ApplyForURL(*url, time.Minute, nil)
   if err != nil {
     panic(err)
